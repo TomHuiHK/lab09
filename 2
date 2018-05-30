@@ -1,0 +1,17 @@
+#include <IRremote.h>
+
+const int buttomPin = 4;
+int buttonState = 0;
+IRsend irsend;
+void setup()
+{
+pinMode(buttomPin, INPUT);
+}
+void loop()
+{
+buttonState = digitalRead(buttomPin);
+if(buttonState == HIGH)
+{
+irsend.sendNEC(0x4FB48B7, 32);
+}
+}
